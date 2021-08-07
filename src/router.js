@@ -26,6 +26,11 @@ const routes = [
     path: '/profiles/:id',
     name: 'Profile',
     component: loadPage('ProfilePage')
+  },
+  {
+    path: '/searchResults/:query',
+    name: 'SearchResults',
+    component: loadPage('SearchResultsPage')
   }
 ]
 

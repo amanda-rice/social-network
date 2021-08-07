@@ -40,9 +40,9 @@
                   v-model="state.newSearch"
                   >
                 </div>
-          <button type="submit" class="btn btn-primary">
-            Search
-          </button>
+          <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" tag="button" type ="submit">
+              Search
+          </router-link>
       </form>
   </nav>
 </template>
@@ -54,7 +54,8 @@ import { computed, reactive } from 'vue'
 export default {
   setup() {
     const state = reactive({
-      dropOpen: false
+      dropOpen: false,
+      newSearch: 'test'
     })
     return {
       state,
