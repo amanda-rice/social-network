@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center p-3">
-    <AnnouncementCard v-for="a in announcements" :key="a.id" :announcement="a"/>
+    <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
   name: 'Thread',
   props: {
-    announcements: {
+    mustBuys: {
       type: Array,
       required: true
     }

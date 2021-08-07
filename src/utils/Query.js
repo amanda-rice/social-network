@@ -4,5 +4,6 @@ export function convertToQuery(object) {
     htmlEncode += key + '=' + object[key] + '&'
   }
   htmlEncode = htmlEncode.substring(0, htmlEncode.length - 1)
+  console.log(htmlEncode, 'htmlencode')
   return htmlEncode
 }
