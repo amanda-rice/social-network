@@ -11,6 +11,13 @@ class AnnouncementsService {
     AppState.next = res.data.older
   }
 
+  async getById(query) {
+    const res = await api.get('api/posts/' + convertToQuery(query))
+    AppState.announcements = res.data.posts
+    AppState.previous = res.data.newer
+    AppState.next = res.data.older
+  }
+
   async createAnnouncement(announcement) {
     const res = await api.post('api/posts', announcement)
     await this.getAll()
