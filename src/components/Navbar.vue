@@ -31,7 +31,19 @@
       </ul>
       
     </div>
-    
+    <form @submit.prevent="createAnnouncement" class="d-flex m-2">
+        <div class="form-group mr-2">
+          <input type="text"
+                  id="search"
+                  class="form-control"
+                  placeholder="Search..."
+                  v-model="state.newSearch"
+                  >
+                </div>
+          <button type="submit" class="btn btn-primary">
+            Search
+          </button>
+      </form>
   </nav>
 </template>
 

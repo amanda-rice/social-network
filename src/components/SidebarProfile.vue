@@ -13,7 +13,8 @@
           />
           </div>
       </div> 
-      <h1 class="large-name">{{ profile.name }}</h1>
+      <p>{{ profile.class }}</p>
+      <p class="large-name">{{ profile.name }}</p>
       <div class="d-flex text-left">
           <img
           alt="linkedIn logo"
