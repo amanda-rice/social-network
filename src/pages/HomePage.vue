@@ -2,17 +2,17 @@
   <div class="home">
     <div class="row">
       <div class="col-2 sidebar-height">
-        <p>Sidebar AHhhhh</p>
+        <SideBar/>
       </div>
       <div class="col-10">
         <div class="row">
-
           <div class="col-12">
             <Navbar/>
         </div>
         <div class="col-8">
-          
-          <AnnouncementCreation/>
+          <div v-if="account.id">
+            <AnnouncementCreation/>
+          </div>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -68,6 +68,7 @@ export default {
       next: computed(()=> AppState.next),
       announcements: computed(()=> AppState.announcements),
       mustBuys: computed(()=> AppState.mustBuys),
+      account: computed(() => AppState.account),
       async nextPage(){
         try {
           console.log(this.announcements, "announcements")
