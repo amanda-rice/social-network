@@ -8,54 +8,68 @@
       >
         Login
       </button>
-      <div v-else class="d-flex flex-column text-center align-items-center">
-        <img
-              :src="user.picture"
-              alt="user photo"
-              height="100"
-              width="100"
-              class="rounded"
-        />
-        <div class="dropdown">
-          <div
-            class="dropdown-toggle"
-            @click="state.dropOpen = !state.dropOpen"
-          >
-            <span class="mx-3">{{ user.name }}</span>
-          </div>
-          <div
-            class="dropdown-menu p-0 list-group w-100"
-            :class="{ show: state.dropOpen }"
-            @click="state.dropOpen = false"
-          >
-            <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item list-group-item-action hoverable">
-                Account
+      <div v-else class="d-flex flex-column text-center">
+        <div class="d-flex flex-column align-items-center pt-5">
+
+          <img
+          :src="account.picture"
+          alt="account.name"
+          height="200"
+          width="150"
+          class="rounded"
+          object-fit="cover"
+          />
               </div>
-            </router-link>
-            <div
-              class="list-group-item list-group-item-action hoverable"
-              @click="logout"
-            >
-              logout
+              <div class="d-flex justify-content-start flex-column text-left ">
+                <p class="p-0 m-0">{{account.class}}</p>
+                <div class="dropdown p-0 m-0">
+                  <div
+                  class="dropdown-toggle"
+                  @click="state.dropOpen = !state.dropOpen"
+                  >
+                  <span class="large-name">{{ account.name }}</span>
+                </div>
+                <div
+                class="dropdown-menu p-0 list-group w-100"
+                :class="{ show: state.dropOpen }"
+                @click="state.dropOpen = false"
+                >
+                <router-link :to="{ name: 'Account' }">
+                  <div class="list-group-item list-group-item-action hoverable">
+                    Account
+                  </div>
+                </router-link>
+                <div
+                class="list-group-item list-group-item-action hoverable"
+                @click="logout"
+                >
+                logout
+              </div>
             </div>
           </div>
-        </div> 
-        <p>{{user.bio}}</p> 
-        <div>
+      </div> 
+      <div class="d-flex text-left">
           <img
-          alt="logo"
+          alt="linkedIn logo"
           src="../assets/img/linkedin.png"
           height="25"
           width="25"
-          /><p> {{user.linkedin}}</p>  
+          /><p> {{account.linkedin}}</p>  
         </div>
-      <p>Resume {{user.resume}}</p>>
-      <p>{{user}}</p>
-    </div>
+        <div class="d-flex text-left">
+          <img
+          alt="GitHub logo"
+          src="../assets/img/github.png"
+          height="25"
+          width="25"
+          /><p> {{account.github}}</p>  
+        </div>
+        <p>Resume</p>
+
     <div class="pr-5 action" data-toggle="modal" data-target="#create-account">
         <span>Update Profile</span>
       </div>
+          </div>
     </span>
   </div>
    <div class="modal fade"
@@ -82,9 +96,89 @@
               <input type="text"
                      id="name"
                      class="form-control"
-                     required
                      placeholder="Name..."
                      v-model="state.updatedAccount.name"
+              >
+            </div>
+            <div class="form-group">
+              <label class="pr-2" for="email">Email</label>
+              <input type="text"
+                     id="email"
+                     class="form-control"
+                     placeholder="Email..."
+                     v-model="state.updatedAccount.email"
+              >
+            </div>
+            <div class="form-group">
+              <label class="pr-2" for="picture">Profile Picture</label>
+              <input type="text"
+                     id="picture"
+                     class="form-control"
+                     placeholder="Add link to profile picture..."
+                     v-model="state.updatedAccount.picture"
+              >
+            </div>
+            <div class="form-group">
+              <label class="pr-2" for="coverImg">Cover Image</label>
+              <input type="text"
+                     id="coverImg"
+                     class="form-control"
+                     placeholder="Add link for your cover image..."
+                     v-model="state.updatedAccount.coverImg"
+              >
+            </div>
+            <div class="form-group">
+              <label class="pr-2" for="bio">Bio</label>
+              <input type="text"
+                     id="bio"
+                     class="form-control"
+                     placeholder="Bio..."
+                     v-model="state.updatedAccount.bio"
+              >
+            </div>
+             <div class="form-group">
+              <label class="pr-2" for="github">GitHub</label>
+              <input type="text"
+                     id="github"
+                     class="form-control"
+                     placeholder="GitHub..."
+                     v-model="state.updatedAccount.github"
+              >
+            </div>
+             <div class="form-group">
+              <label class="pr-2" for="linkedin">LinkedIn</label>
+              <input type="text"
+                     id="linkedin"
+                     class="form-control"
+                     placeholder="LinkedIn..."
+                     v-model="state.updatedAccount.linkedin"
+              >
+            </div>
+             <div class="form-group">
+              <label class="pr-2" for="resume">Resume</label>
+              <input type="text"
+                     id="resume"
+                     class="form-control"
+                     placeholder="Resume..."
+                     v-model="state.updatedAccount.resume"
+              >
+            </div>
+             <div class="form-group">
+              <label class="pr-2" for="class">Class</label>
+              <input type="text"
+                     id="class"
+                     class="form-control"
+                     placeholder="Class..."
+                     v-model="state.updatedAccount.class"
+              >
+            </div>
+             <div class="form-group">
+              <label class="pr-2" for="graduated">Graduated?</label>
+              <input type="boolean"
+                     id="graduated"
+                     class="form-control"
+                     placeholder="Graduated?"
+                     v-model="state.updatedAccount.graduated"
               >
             </div>
             <div>
@@ -161,5 +255,9 @@ a:hover {
 }
 .nav-item .nav-link.router-link-exact-active{
   color: var(--primary);
+}
+.large-name{
+  font-size: 30px;
+  font-weight: 600;
 }
 </style>
