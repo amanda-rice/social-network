@@ -7,5 +7,6 @@ export const AppState = reactive({
   announcements: [],
   previous: '',
   next: '',
-  mustBuys: []
+  mustBuys: [],
+  profile: {}
 })

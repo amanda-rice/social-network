@@ -2,7 +2,7 @@
   <div class="profilepage">
     <div class="row">
       <div class="col-2 sidebar-height">
-        <SideBar/>
+        <SidebarProfile/>
       </div>
       <div class="col-10">
         <div class="row">
@@ -10,9 +10,6 @@
             <Navbar/>
         </div>
         <div class="col-8">
-          <div v-if="account.id">
-            <AnnouncementCreation/>
-          </div>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -40,6 +37,7 @@
 import { computed, onMounted } from '@vue/runtime-core'
 import { announcementsService } from '../services/AnnouncementsService'
 import { mustBuysService } from '../services/MustBuysService'
+import { profilesService } from '../services/ProfilesService'
 import Pop from '../utils/Notifier'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
@@ -57,6 +55,13 @@ export default {
     })
     onMounted(async () => {
       try {
+        await profilesService.getById(router.params.id)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
+    onMounted(async () => {
+      try {
         await mustBuysService.getAll()
       } catch (error) {
         Pop.toast(error, 'error')
@@ -67,7 +72,6 @@ export default {
       next: computed(()=> AppState.next),
       announcements: computed(()=> AppState.announcements),
       mustBuys: computed(()=> AppState.mustBuys),
-      account: computed(() => AppState.account),
       async nextPage(){
         try {
           await announcementsService.getAll(AppState.next)
