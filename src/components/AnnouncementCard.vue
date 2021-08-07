@@ -1,6 +1,12 @@
 <template>
   <div class="col-12 my-3 bg-light shadow">
-    <h3>{{ announcement.creator.name }}</h3>
+    <router-link router-link :to="{ name: 'Profile', params: {id: announcement.creator.id } }"  class="creator p-3 align-self-end">
+      <h1>{{announcement.creator.name}}</h1>
+      </router-link>
+    <div v-if="announcement.imgUrl">
+      <img :src="announcement.imgUrl" :alt="announcement.creator.name"
+      class="w-100">
+    </div>
     <p>{{ announcement.body }}</p>
     <div class="d-flex">
       <div class="align-self-end" v-if="account.id === announcement.creatorId">

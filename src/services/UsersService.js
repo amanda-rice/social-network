@@ -4,7 +4,6 @@ import { api } from './AxiosService'
 class UsersService {
   async updateAccount(obj) {
     const res = await api.put('/account/', obj)
-    console.log(res)
   }
 }
 

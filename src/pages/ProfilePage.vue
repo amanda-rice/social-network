@@ -38,18 +38,19 @@
   
   <script>
 import { computed, onMounted } from '@vue/runtime-core'
-import { AppState } from '../AppState'
+import { announcementsService } from '../services/AnnouncementsService'
+import { mustBuysService } from '../services/MustBuysService'
 import Pop from '../utils/Notifier'
-import {announcementsService} from '../services/AnnouncementsService'
-import {mustBuysService} from '../services/MustBuysService'
+import { useRoute } from 'vue-router'
+import { AppState } from '../AppState'
 
 
 export default {
-  name: 'Home',
   setup(){
+    const router = useRoute()
     onMounted(async () => {
       try {
-        await announcementsService.getAll()
+        await announcementsService.getById({creatorId: router.params.id})
       } catch (error) {
         Pop.toast(error, 'error')
       }
@@ -69,7 +70,6 @@ export default {
       account: computed(() => AppState.account),
       async nextPage(){
         try {
-          console.log(this.announcements, "announcements")
           await announcementsService.getAll(AppState.next)
         } catch (error) {
           Pop.toast(error, 'error')
@@ -77,7 +77,6 @@ export default {
       },
       async previousPage(){
         try {
-          console.log(this.previous, "previous")
           await announcementsService.getAll(AppState.previous)
         } catch (error) {
           Pop.toast(error, 'error')

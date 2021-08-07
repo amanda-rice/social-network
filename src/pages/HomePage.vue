@@ -71,7 +71,6 @@ export default {
       account: computed(() => AppState.account),
       async nextPage(){
         try {
-          console.log(this.announcements, "announcements")
           await announcementsService.getAll(AppState.next)
         } catch (error) {
           Pop.toast(error, 'error')
@@ -79,7 +78,6 @@ export default {
       },
       async previousPage(){
         try {
-          console.log(this.previous, "previous")
           await announcementsService.getAll(AppState.previous)
         } catch (error) {
           Pop.toast(error, 'error')
