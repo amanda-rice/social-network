@@ -9,7 +9,8 @@
           <div class="col-12">
             <Navbar/>
         </div>
-        <div class="col-8">
+        <div class="col-10">
+          <ProfileCard/>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -19,11 +20,9 @@
           </div>
         </div>
         <div class="col-2">
-          <aside class="ml-3 mr-1 my-3">
             <div class="row">
               <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>
             </div>
-          </aside>
           
         </div>
         

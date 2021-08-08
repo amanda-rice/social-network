@@ -40,9 +40,11 @@
                   v-model="state.newSearch"
                   >
                 </div>
-          <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" tag="button" type ="submit">
+          <div v-if="state.newSearch">
+            <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" tag="button" type ="submit">
               Search
-          </router-link>
+            </router-link>
+          </div>
       </form>
   </nav>
 </template>
@@ -55,7 +57,7 @@ export default {
   setup() {
     const state = reactive({
       dropOpen: false,
-      newSearch: 'test'
+      newSearch: ''
     })
     return {
       state,

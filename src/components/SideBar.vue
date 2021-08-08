@@ -15,19 +15,18 @@
           :src="account.picture"
           alt="account.name"
           height="200"
-          width="150"
-          class="rounded"
-          object-fit="cover"
+          width="200"
+          class = "circle-image"
           />
               </div>
               <div class="d-flex justify-content-start flex-column text-left ">
                 <p class="p-0 m-0">{{account.class}}</p>
-                <div class="dropdown p-0 m-0">
+                <div class="dropdown selectable p-0 m-0">
                   <div
                   class="dropdown-toggle"
                   @click="state.dropOpen = !state.dropOpen"
                   >
-                  <span class="large-name">{{ account.name }}</span>
+                  <span class="large-name overflow-hidden">{{ account.name }}</span>
                 </div>
                 <div
                 class="dropdown-menu p-0 list-group w-100"
@@ -259,5 +258,12 @@ a:hover {
 .large-name{
   font-size: 30px;
   font-weight: 600;
+}
+.selectable{
+  cursor: pointer;
+}
+.circle-image{
+  border-radius: 50%;
+  object-fit: cover;
 }
 </style>

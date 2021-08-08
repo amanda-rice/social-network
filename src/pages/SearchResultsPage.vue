@@ -54,7 +54,14 @@ export default {
     const router = useRoute()
     onMounted(async () => {
       try {
-        await profilesService.getAll(router.params.id)
+        await profilesService.getAll(router.params.query)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
+    onMounted(async () => {
+      try {
+        await announcementsService.getByQuery('api/posts?query=', router.params.query)
       } catch (error) {
         Pop.toast(error, 'error')
       }

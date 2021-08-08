@@ -1,6 +1,8 @@
 <template>
-  <div class="col-12 w-100 my-3">
-    <img :src="mustBuy.tall" alt="testing">
+  <div class="col-12 my-3">
+    <div class="mr-3">
+      <img :src="mustBuy.tall" alt="testing" class="fit-ads w-100">
+    </div>
   </div>
 </template>
 
@@ -28,5 +30,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.fit-ads{
+  object-fit: cover;
+}
 </style>

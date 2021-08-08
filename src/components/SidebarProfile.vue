@@ -1,20 +1,19 @@
 <template>
   <div class="component">
-    <span class="navbar-text">
+    <div class="">
       <div class="d-flex flex-column text-center">
         <div class="d-flex flex-column align-items-center pt-5">
           <img
           :src="profile.picture"
           alt="profile.name"
           height="200"
-          width="150"
-          class="rounded"
-          object-fit="cover"
+          width="200"
+          class="circle-image"
           />
           </div>
       </div> 
       <p>{{ profile.class }}</p>
-      <p class="large-name">{{ profile.name }}</p>
+      <p class="large-name overflow-hidden">{{ profile.name }}</p>
       <div class="d-flex text-left">
           <img
           alt="linkedIn logo"
@@ -32,7 +31,7 @@
           /><p> {{profile.github}}</p>  
         </div>
         <p>Resume</p>
-      </span>
+      </div>
   </div>
 </template>
 
@@ -60,5 +59,9 @@ export default {
 .large-name{
   font-size: 30px;
   font-weight: 600;
+}
+.circle-image{
+  border-radius: 50%;
+  object-fit: cover;
 }
 </style>

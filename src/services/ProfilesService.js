@@ -2,9 +2,9 @@ import { AppState } from '../AppState'
 import { api } from './AxiosService'
 
 class ProfilesService {
-  async getAll(url = 'api/profiles?query=', query) {
-    console.log(url + query)
-    const res = await api.get(url + query)
+  async getAll(query) {
+    console.log('api/profiles?query=' + query)
+    const res = await api.get('api/profiles?query=' + query)
     console.log(res.data)
     AppState.profiles = res.data
   }

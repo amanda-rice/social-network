@@ -1,11 +1,15 @@
 <template>
   <div class="col-12 my-3 bg-light shadow">
-    <router-link router-link :to="{ name: 'Profile', params: {id: announcement.creator.id } }"  class="creator p-3 align-self-end">
-      <h1>{{announcement.creator.name}}</h1>
-      </router-link>
-    <div v-if="announcement.imgUrl">
-      <img :src="announcement.imgUrl" :alt="announcement.creator.name"
-      class="w-100">
+    <div class="p-3">
+      <div class="d-flex text-left">
+        <img :src="announcement.creator.picture" :alt="announcement.creator.name" class="small-prof-pic mr-2">
+        <router-link router-link :to="{ name: 'Profile', params: {id: announcement.creator.id } }"  class="">
+          <p>{{announcement.creator.name}}</p>
+        </router-link>
+      </div>
+      <div v-if="announcement.imgUrl">
+        <img :src="announcement.imgUrl" :alt="announcement.creator.name"
+        class="w-100">
     </div>
     <p>{{ announcement.body }}</p>
     <div class="d-flex">
@@ -16,6 +20,7 @@
       </div>
       <p>{{announcement.likes.length}}</p>
       <h1 class="p-0 m-0" @click="addLike">♡</h1>
+    </div>
     </div>
   </div>
 </template>
@@ -60,5 +65,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.small-prof-pic{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 </style>
