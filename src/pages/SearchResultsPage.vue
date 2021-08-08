@@ -1,18 +1,16 @@
 <template>
   <div class="home">
     <div class="row">
-      <div class="col-2 sidebar-height">
+      <div class="col-2 sidebar-height sml-hdn">
         <SideBar/>
       </div>
-      <div class="col-10">
+      <div class="col-md-10">
         <div class="row">
           <div class="col-12">
             <Navbar/>
-        </div>
-        <div class="col-8">
-          <div v-if="account.id">
-            <AnnouncementCreation/>
           </div>
+        <div class="col-md-10">
+          <ProfileSearchCard v-for="p in profiles" :key="p.id" :profile="p"/>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -21,7 +19,7 @@
             <button @click="nextPage">Next</button>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-2 sml-hdn">
           <aside class="ml-3 mr-1 my-3">
             <div class="row">
               <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>
@@ -52,20 +50,20 @@ export default {
   name: 'SearchResultsPage',
   setup(){
     const router = useRoute()
-    onMounted(async () => {
-      try {
-        await profilesService.getAll(router.params.query)
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
-    })
-    onMounted(async () => {
-      try {
-        await announcementsService.getByQuery('api/posts?query=', router.params.query)
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
-    })
+    // onMounted(async () => {
+    //   try {
+    //     await profilesService.getAll(router.params.query)
+    //   } catch (error) {
+    //     Pop.toast(error, 'error')
+    //   }
+    // })
+    // onMounted(async () => {
+    //   try {
+    //     await announcementsService.getByQuery('api/posts?query=', router.params.query)
+    //   } catch (error) {
+    //     Pop.toast(error, 'error')
+    //   }
+    // })
     onMounted(async () => {
       try {
         await mustBuysService.getAll()
@@ -79,6 +77,8 @@ export default {
       announcements: computed(()=> AppState.announcements),
       mustBuys: computed(()=> AppState.mustBuys),
       account: computed(() => AppState.account),
+      profiles: computed(() => AppState.profiles),
+      thisQuery: computed(()=> router.params.query),
       async nextPage(){
         try {
           await announcementsService.getAll(AppState.next)
@@ -105,6 +105,11 @@ export default {
   > img{
     height: 200px;
     width: 200px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .sml-hdn {
+    display: none;
   }
 }
 .sidebar-height{
