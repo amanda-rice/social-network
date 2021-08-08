@@ -1,15 +1,15 @@
 <template>
-  <div class="home m-0">
+  <div class="home">
     <div class="row">
-      <div class="col-2 sidebar-height">
+      <div class="col-2 sidebar-height sml-hdn">
         <SideBar/>
       </div>
-      <div class="col-10">
+      <div class="col-md-10">
         <div class="row">
           <div class="col-12">
             <Navbar/>
         </div>
-        <div class="col-8">
+        <div class="col-md-10">
           <div v-if="account.id">
             <AnnouncementCreation/>
           </div>
@@ -21,7 +21,7 @@
             <button @click="nextPage">Next</button>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-2 sml-hdn">
           <aside class="ml-3 mr-1 my-3">
             <div class="row">
               <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>

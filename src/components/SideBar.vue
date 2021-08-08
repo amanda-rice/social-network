@@ -1,5 +1,5 @@
 <template>
-  <div class="component">
+  <div class="component bg-light ml-0 shadow">
     <span class="navbar-text">
       <button
         class="btn btn-outline-primary text-uppercase"
@@ -9,27 +9,30 @@
         Login
       </button>
       <div v-else class="d-flex flex-column text-center">
-        <div class="d-flex flex-column align-items-center pt-5">
+        <div class="col-12">
 
-          <img
+          <div class="pt-5 parent w-100">
+            <img
           :src="account.picture"
           alt="account.name"
-          height="200"
-          width="200"
-          class = "circle-image"
+          class = "circle-image border-primary child1"
           />
-              </div>
-              <div class="d-flex justify-content-start flex-column text-left ">
-                <p class="p-0 m-0">{{account.class}}</p>
-                <div class="dropdown selectable p-0 m-0">
-                  <div
-                  class="dropdown-toggle"
-                  @click="state.dropOpen = !state.dropOpen"
-                  >
-                  <span class="large-name overflow-hidden">{{ account.name }}</span>
-                </div>
-                <div
-                class="dropdown-menu p-0 list-group w-100"
+          <div v-if="account.graduated" class="child1 child2">
+            <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img bg-light p-1">
+          </div>
+        </div>
+      </div>
+        <div class="d-flex justify-content-start flex-column text-left ">
+          <p class="p-0 m-0 minor-text">{{account.class}}</p>
+          <div class="dropdown selectable p-0 m-0">
+            <div
+            class="dropdown-toggle"
+            @click="state.dropOpen = !state.dropOpen"
+            >
+            <span class="large-name overflow-hidden">{{ account.name }}</span>
+          </div>
+          <div
+          class="dropdown-menu p-0 list-group w-100"
                 :class="{ show: state.dropOpen }"
                 @click="state.dropOpen = false"
                 >
@@ -261,9 +264,5 @@ a:hover {
 }
 .selectable{
   cursor: pointer;
-}
-.circle-image{
-  border-radius: 50%;
-  object-fit: cover;
 }
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div class="profilepage">
     <div class="row">
-      <div class="col-2 sidebar-height">
+      <div class="col-2 sidebar-height sml-hdn">
         <SidebarProfile/>
       </div>
-      <div class="col-10">
+      <div class="col-md-10">
         <div class="row">
           <div class="col-12">
             <Navbar/>
         </div>
-        <div class="col-10">
+        <div class="col-md-10">
           <ProfileCard/>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
@@ -19,7 +19,7 @@
             <button @click="nextPage">Next</button>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-2 sml-hdn">
             <div class="row">
               <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>
             </div>

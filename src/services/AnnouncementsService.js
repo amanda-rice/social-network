@@ -7,6 +7,7 @@ class AnnouncementsService {
   async getAll(url = 'api/posts', query = {}) {
     const res = await api.get(url + convertToQuery(query))
     AppState.announcements = res.data.posts
+    console.log(AppState.announcements)
     AppState.previous = res.data.newer
     AppState.next = res.data.older
   }

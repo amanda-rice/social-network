@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark gradient-bg">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <h1>DevSpace</h1>
@@ -41,7 +41,7 @@
                   >
                 </div>
           <div v-if="state.newSearch">
-            <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" tag="button" type ="submit">
+            <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" @click="getAll" tag="button" type ="submit">
               Search
             </router-link>
           </div>
@@ -51,8 +51,13 @@
 
 <script>
 import { AuthService } from '../services/AuthService'
+import { profilesService } from '../services/ProfilesService'
+import { announcementsService } from '../services/AnnouncementsService'
 import { AppState } from '../AppState'
+import Pop from '../utils/Notifier'
 import { computed, reactive } from 'vue'
+
+
 export default {
   setup() {
     const state = reactive({
@@ -67,7 +72,19 @@ export default {
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
+      },
+      async getAll(){
+      try {
+        await profilesService.getAll(state.newSearch)
+      } catch (error) {
+        Pop.toast(error, 'error')
       }
+      try {
+          await announcementsService.getByQuery('api/posts?query=', state.newSearch)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+    },
     }
   }
 }

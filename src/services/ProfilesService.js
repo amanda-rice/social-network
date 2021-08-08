@@ -5,7 +5,7 @@ class ProfilesService {
   async getAll(query) {
     console.log('api/profiles?query=' + query)
     const res = await api.get('api/profiles?query=' + query)
-    console.log(res.data)
+    console.log(res, 'profiles by query')
     AppState.profiles = res.data
   }
 

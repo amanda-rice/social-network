@@ -1,18 +1,19 @@
 <template>
-  <div class="component">
-    <div class="">
-      <div class="d-flex flex-column text-center">
-        <div class="d-flex flex-column align-items-center pt-5">
+  <div class="component bg-light ml-0 shadow">
+    <div class="d-flex flex-column text-center">
+      <div class="col-12">
+        <div class="pt-5 parent w-100">
           <img
           :src="profile.picture"
           alt="profile.name"
-          height="200"
-          width="200"
-          class="circle-image"
+          class = "circle-image border-primary child1"
           />
-          </div>
-      </div> 
-      <p>{{ profile.class }}</p>
+          <div v-if="profile.graduated" class="child1 child2">
+            <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img bg-light p-1">
+        </div>
+      </div>
+        </div>
+      <p class="minor-text">{{ profile.class }}</p>
       <p class="large-name overflow-hidden">{{ profile.name }}</p>
       <div class="d-flex text-left">
           <img
@@ -59,9 +60,5 @@ export default {
 .large-name{
   font-size: 30px;
   font-weight: 600;
-}
-.circle-image{
-  border-radius: 50%;
-  object-fit: cover;
 }
 </style>

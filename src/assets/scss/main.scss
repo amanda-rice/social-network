@@ -22,3 +22,61 @@ main {
   display: flex;
   align-items: stretch;
 }
+@media only screen and (max-width: 768px) {
+  .sml-hdn {
+    display: none;
+  }
+}
+.minor-text{
+  color: $dark-grey;
+}
+.border-primary{
+  border-style: solid;
+  border-color: $primary;
+  border-width: thin;
+}
+.circle-img{
+  border-radius: 50%;
+  height: 3vw;
+  width: 3vw;
+}
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1 fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 20vw;
+}
+.child1 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  z-index: 1;
+}
+.child2 {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  z-index: 2;
+}
+.circle-image{
+  border-radius: 50%;
+  object-fit: cover;
+  height: 12vw;
+  width: 12vw;
+}
+.parent-sm {
+  display: grid;
+  grid-template-columns: 1fr 1 fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 110px;
+  width: 110px;
+}
+.circle-img-sm{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.gradient-bg{
+  background: rgb(57,196,198);
+  background: linear-gradient(90deg, rgba(57,196,198,1) 0%, rgba(162,227,220,1) 64%, rgba(145,223,215,1) 100%);
+}

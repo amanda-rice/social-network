@@ -2,10 +2,13 @@
   <div class="col-12 my-3 bg-light shadow">
     <div class="p-3">
       <div class="d-flex text-left">
-        <img :src="announcement.creator.picture" :alt="announcement.creator.name" class="small-prof-pic mr-2">
         <router-link router-link :to="{ name: 'Profile', params: {id: announcement.creator.id } }"  class="">
-          <p>{{announcement.creator.name}}</p>
-        </router-link>
+            <img :src="announcement.creator.picture" :alt="announcement.creator.name" class="small-prof-pic mr-2">
+          </router-link>
+          <p class="d-flex flex-column">
+            <p class="p-0 m-0"><b>{{announcement.creator.name}}</b></p>
+            <p class="minor-text p-0 m-0"> {{cleanDate}}</p>
+          </p>
       </div>
       <div v-if="announcement.imgUrl">
         <img :src="announcement.imgUrl" :alt="announcement.creator.name"
@@ -18,8 +21,10 @@
           delete
         </button>
       </div>
-      <p>{{announcement.likes.length}}</p>
-      <h1 class="p-0 m-0" @click="addLike">♡</h1>
+      <div class="ml-auto d-flex">
+        <h1 class="pr-2 m-0 " @click="addLike">♡</h1>
+        <p class="">{{announcement.likes.length}}</p>
+      </div>
     </div>
     </div>
   </div>
@@ -31,6 +36,8 @@ import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import Pop from '../utils/Notifier'
 import { announcementsService } from '../services/AnnouncementsService'
+import * as timeago from 'timeago.js'
+
 export default {
   props: {
     announcement: {
@@ -41,6 +48,7 @@ export default {
   setup(props) {
     return {
       account: computed(() => AppState.account),
+      cleanDate: timeago.format(props.announcement.createdAt),
       async destroy() {
         try {
           if (await Pop.confirm()) {
