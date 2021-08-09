@@ -1,5 +1,4 @@
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
 import { convertToQuery } from '../utils/Query'
 import { api } from './AxiosService'
 
@@ -7,17 +6,13 @@ class AnnouncementsService {
   async getAll(url = 'api/posts', query = {}) {
     const res = await api.get(url + convertToQuery(query))
     AppState.announcements = res.data.posts
-    console.log(AppState.announcements)
     AppState.previous = res.data.newer
     AppState.next = res.data.older
   }
 
   async getByQuery(url = 'api/posts?query=', query = ' ') {
     const res = await api.get(url + query)
-    console.log(res)
-    console.log(res.data, 'posts')
     AppState.announcements = res.data.posts
-    console.log(AppState.announcements, 'ann')
     AppState.previous = res.data.newer
     AppState.next = res.data.older
   }

@@ -31,7 +31,7 @@
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
             >
-            <h2 class="text-overflow">{{ account.name }}</h2>
+          <h2 class="text-overflow p-0 mt-0">{{ account.name }}</h2>
           </div>
           <div
           class="dropdown-menu p-0 list-group w-100"

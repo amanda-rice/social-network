@@ -17,7 +17,7 @@
       <div class="d-flex justify-content-between">
         <div class="d-flex flex-column">
           <p class="m-0 p-0 minor-text">{{profile.class}}</p>
-          <h3 class="m-0 p-0 text-overflow"><b>{{profile.name}}</b></h3>
+          <h3 class="text-overflow p-0 mt-0">{{ profile.name }}</h3>
         </div>
         <div class="d-flex">
           <div v-if="profile.linkedin" class="d-flex text-left">
@@ -64,8 +64,6 @@
 <script>
 import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
-import Pop from '../utils/Notifier'
-import { announcementsService } from '../services/AnnouncementsService'
 export default {
   setup() {
     return {
