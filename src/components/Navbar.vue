@@ -28,8 +28,14 @@
         Login
       </div>
         </li>
-            <li v-if="user.isAuthenticated" class="nav-item"> <span class="text-light text-uppercase hoverable" data-toggle="modal" data-target="#create-account">Update Profile</span>
+            <li v-if="user.isAuthenticated" class="nav-item"> <span class="text-light text-uppercase hoverable" data-toggle="modal" data-target="#create-account">Update Account</span>
             </li>
+             <li v-if="user.isAuthenticated" 
+                class="text-light text-uppercase hoverable pl-3"
+                @click="logout"
+                >
+                logout
+              </li>
       </ul>
     </div>
     <form @submit.prevent="createAnnouncement" class="d-flex m-2">

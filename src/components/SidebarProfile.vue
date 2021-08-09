@@ -1,8 +1,8 @@
 <template>
-  <div class="component bg-light ml-0 pb-2 shadow">
+  <div class="component bg-light ml-0 pb-4 shadow">
     <div class="d-flex flex-column text-center">
       <div class="col-12">
-        <div class="pt-5 parent w-100">
+        <div class="pt-5 pb-2 parent w-100">
           <img
             :src="profile.picture"
             alt="profile.name"
@@ -13,16 +13,16 @@
             </div>
           </div>
         </div>
-        <div class="px-3">
-          <p class="minor-text">{{ profile.class }}</p>
-          <p class="large-name text-overflow">{{ profile.name }}</p>
+        <div class="px-3 mt-4 d-flex flex-column text-left">
+          <p class="minor-text p-0 m-0">{{ profile.class }}</p>
+          <h2 class="text-overflow p-0 mt-0">{{ profile.name }}</h2>
           <div class="d-flex text-left">
             <img
             alt="linkedIn logo"
             src="../assets/img/linkedin.png"
             height="25"
             width="25"
-            /><p class="text-overflow"> {{profile.linkedin}}</p>  
+            /><p class="text-overflow px-1"> {{profile.linkedin}}</p>  
           </div>
           <div class="d-flex text-left">
             <img
@@ -30,7 +30,7 @@
             src="../assets/img/github.png"
             height="25"
             width="25"
-            /><p class="text-overflow"> {{profile.github}}</p>  
+            /><p class="text-overflow px-1"> {{profile.github}}</p>  
           </div>
           <div class="d-flex text-left">
           <img
@@ -40,7 +40,7 @@
           width="25"
           />
         <div class="action" data-toggle="modal" data-target="#resume-modal-profile">
-        <span class="hoverable">Resume</span>
+        <span class="hoverable px-1">Resume</span>
       </div>
       </div>
         </div>

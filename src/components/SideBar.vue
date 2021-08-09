@@ -1,5 +1,5 @@
 <template>
-  <div class="component bg-light ml-0 pb-2 shadow">
+  <div class="component bg-light ml-0 pb-4 shadow">
     <span class="navbar-text">
       <button
         class="btn btn-outline-primary text-uppercase"
@@ -22,30 +22,28 @@
           </div>
         </div>
       </div>
-        <div class="d-flex justify-content-start flex-column text-left px-3">
+        <div class="d-flex justify-content-start flex-column text-left px-3 pt-3">
           <p class="p-0 m-0 minor-text">{{account.class}}</p>
           <div class="dropdown selectable p-0 m-0">
             <div
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
             >
-            <span class="large-name overflow-hidden">{{ account.name }}</span>
+            <h2 class="large-name overflow-hidden">{{ account.name }}</h2>
           </div>
           <div
           class="dropdown-menu p-0 list-group w-100"
                 :class="{ show: state.dropOpen }"
                 @click="state.dropOpen = false"
                 >
-                <router-link :to="{ name: 'Account' }">
-                  <div class="list-group-item list-group-item-action hoverable">
-                    Account
-                  </div>
-                </router-link>
+                <div class="list-group-item list-group-item-action hoverable" data-toggle="modal" data-target="#create-account">
+                  Update Account
+                </div>
                 <div
                 class="list-group-item list-group-item-action hoverable"
                 @click="logout"
                 >
-                logout
+                Logout
               </div>
             </div>
           </div>
@@ -56,7 +54,7 @@
           src="../assets/img/linkedin.png"
           height="25"
           width="25"
-          /><p> {{account.linkedin}}</p>  
+          /><p class="px-1 text-overflow"> {{account.linkedin}}</p>  
         </div>
         <div class="d-flex text-left px-3">
           <img
@@ -64,7 +62,7 @@
           src="../assets/img/github.png"
           height="25"
           width="25"
-          /><p> {{account.github}}</p>  
+          /><p class="px-1 text-overflow"> {{account.github}}</p>  
         </div>
         <div class="d-flex text-left px-3">
           <img
@@ -73,13 +71,9 @@
           height="25"
           width="25"
           />
-        <div class="pr-5 action px-3" data-toggle="modal" data-target="#resume-modal">
-        <span class="hoverable">Resume</span>
+        <div class="pr-5 action px-1" data-toggle="modal" data-target="#resume-modal">
+        <span class="hoverable text-overflow">Resume</span>
       </div>
-        </div>
-
-    <div class="pr-5 action px-3" data-toggle="modal" data-target="#create-account">
-        <span class="hoverable">Update Profile</span>
       </div>
     </div>
     </span>

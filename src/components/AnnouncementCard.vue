@@ -6,7 +6,7 @@
             <img :src="announcement.creator.picture" :alt="announcement.creator.name" class="small-prof-pic mr-2">
           </router-link>
           <p class="d-flex flex-column">
-            <p class="p-0 m-0"><b>{{announcement.creator.name}}</b></p>
+            <p class="p-0 m-0 overflow-hidden"><b>{{announcement.creator.name}}</b></p>
             <p class="minor-text p-0 m-0"> {{cleanDate}}</p>
           </p>
       </div>
@@ -14,7 +14,7 @@
         <img :src="announcement.imgUrl" :alt="announcement.creator.name"
         class="w-100">
     </div>
-    <p>{{ announcement.body }}</p>
+    <p class="overflow-hidden text-left py-2">{{ announcement.body }}</p>
     <div class="d-flex">
       <div class="align-self-end" v-if="account.id === announcement.creatorId">
         <button class="btn btn-danger" @click.stop="destroy">
@@ -22,7 +22,7 @@
         </button>
       </div>
       <div class="ml-auto d-flex align-items-end">
-        <h1 class="pr-2 m-0 " @click="addLike">♡</h1>
+        <h1 class="pr-2 m-0 hoverable" @click="addLike">♡</h1>
         <h5 class="d-flex minor-text">{{announcement.likes.length}}</h5>
       </div>
     </div>

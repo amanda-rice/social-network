@@ -1,25 +1,23 @@
 <template>
-  <div class="component row">
-    <div class="col-12">
+  <div class="component row p-3">
+    <div class="col-12  my-3 py-4 bg-light">
       <form @submit.prevent="createAnnouncement">
         <div class="form-group">
-          <label class="pr-2" for="imgUrl">Image URL</label>
+          <textarea type="text"
+                  id="body"
+                  class="form-control border-dashed"
+                  placeholder="Share what's happening..."
+                  required
+                  v-model="state.newAnnouncement.body"
+          ></textarea>
           <input type="text"
                   id="imgUrl"
-                  class="form-control"
-                  placeholder="Image URL..."
+                  class="form-control border-dashed mt-4"
+                  placeholder="Add a picture URL..."
                   v-model="state.newAnnouncement.imgUrl"
                   >
                 </div>
                 <div class="form-group">
-          <label class="pr-2" for="body">Body</label>
-          <textarea type="text"
-                  id="body"
-                  class="form-control"
-                  placeholder="Body..."
-                  required
-                  v-model="state.newAnnouncement.body"
-          ></textarea>
         </div>
         <div>
           <button type="submit" class="btn btn-primary">

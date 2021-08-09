@@ -4,8 +4,8 @@
       <router-link router-link :to="{ name: 'Profile', params: {id: profile._id } }"  class="">
         <img :src="profile.picture" :alt="profile.name" class="md-prof-pic mb-2 mr-2">
       </router-link>
-      <div class="d-flex flex-column">
-        <p class="m-0 p-0">{{profile.class}}</p>
+      <div class="d-flex pl-2 flex-column justify-content-center">
+        <p class="m-0 p-0 minor-text">{{profile.class}}</p>
         <h3 class="m-0 p-0"><b>{{profile.name}}</b></h3>
       </div>
     </div>

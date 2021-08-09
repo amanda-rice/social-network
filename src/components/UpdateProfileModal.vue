@@ -24,6 +24,7 @@
                      id="name"
                      class="form-control"
                      placeholder="Name..."
+                     maxlength= "30"
                      v-model="state.updatedAccount.name"
               >
             </div>
@@ -33,6 +34,7 @@
                      id="email"
                      class="form-control"
                      placeholder="Email..."
+                     maxlength= "50"
                      v-model="state.updatedAccount.email"
               >
             </div>
@@ -42,6 +44,7 @@
                      id="picture"
                      class="form-control"
                      placeholder="Add link to profile picture..."
+                     maxlength= "200"
                      v-model="state.updatedAccount.picture"
               >
             </div>
@@ -51,6 +54,7 @@
                      id="coverImg"
                      class="form-control"
                      placeholder="Add link for your cover image..."
+                     maxlength= "200"
                      v-model="state.updatedAccount.coverImg"
               >
             </div>
@@ -62,6 +66,7 @@
                      id="bio"
                      class="form-control"
                      placeholder="Bio..."
+                     maxlength= "1000"
                      v-model="state.updatedAccount.bio"
               />
             </div>
@@ -71,6 +76,7 @@
                      id="github"
                      class="form-control"
                      placeholder="GitHub..."
+                     maxlength= "25"
                      v-model="state.updatedAccount.github"
               >
             </div>
@@ -80,6 +86,7 @@
                      id="linkedin"
                      class="form-control"
                      placeholder="LinkedIn..."
+                     maxlength= "25"
                      v-model="state.updatedAccount.linkedin"
               >
             </div>
@@ -91,6 +98,7 @@
                      id="resume"
                      class="form-control"
                      placeholder="Resume..."
+                     maxlength= "5000"
                      v-model="state.updatedAccount.resume"
               />
             </div>
@@ -100,6 +108,7 @@
                      id="class"
                      class="form-control"
                      placeholder="Class..."
+                     maxlength= "25"
                      v-model="state.updatedAccount.class"
               >
             </div>
@@ -115,7 +124,7 @@
               </select>
             </div>
             <div>
-              <button v-if="state.updatedAccount" type="submit" class="btn btn-primary">
+              <button v-if="state.updatedAccount" type="submit" class="btn btn-primary mr-3">
                 Save
               </button>
               <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" @click="closeModal">

@@ -1,20 +1,20 @@
 <template>
   <div class="col-12 mt-4 bg-light shadow">
     <div class="p-3 d-flex flex-column">
-      <div class="cover-parent">
+      <div class="cover-parent" id="bg-image">
         <img class="img-fit" :src="profile.coverImg" alt="cover image">
         <div class="parent-sm cover-child2">
           <img
           :src="profile.picture"
           alt="profile.name"
-          class = "md-prof-pic border-primary child1"
+          class = "md-prof-pic border-primary spill"
           />
           <div v-if="profile.graduated" class="child2">
             <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img-sm bg-light p-1">
           </div>
         </div>
       </div>
-      <p class="m-0 p-0 ">{{profile.class}}</p>
+      <p class="m-0 p-0 minor-text">{{profile.class}}</p>
       <h3 class="m-0 p-0"><b>{{profile.name}}</b></h3>
       <div v-if="profile.bio">
         <p class="pt-2">{{ profile.bio }}</p>
@@ -25,7 +25,7 @@
 
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import Pop from '../utils/Notifier'
 import { announcementsService } from '../services/AnnouncementsService'
@@ -51,5 +51,8 @@ export default {
   object-fit:cover;
   width: 100%; 
   max-height: 100px; 
+}
+.spill{
+    bottom: -10vh;
 }
 </style>
