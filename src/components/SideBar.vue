@@ -31,7 +31,7 @@
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
             >
-            <h2 class="large-name overflow-hidden">{{ account.name }}</h2>
+            <h2 class="text-overflow">{{ account.name }}</h2>
           </div>
           <div
           class="dropdown-menu p-0 list-group w-100"
@@ -51,31 +51,36 @@
           </div>
       </div> 
       <div v-if="account.linkedin" class="d-flex text-left px-3">
+        <a :href="account.linkedin">
           <img
           alt="linkedIn logo"
           src="../assets/img/linkedin.png"
           height="25"
-          width="25"
-          /><p class="px-1 text-overflow"> {{account.linkedin}}</p>  
+          width="25"          
+          title="LinkedIn"
+          /></a><p class="px-1 text-overflow">LinkedIn</p>  
         </div>
         <div v-if="account.github" class="d-flex text-left px-3">
-          <img
-          alt="GitHub logo"
-          src="../assets/img/github.png"
-          height="25"
-          width="25"
-          /><p class="px-1 text-overflow"> {{account.github}}</p>  
+          <a :href="account.github">
+            <img
+            alt="GitHub logo"
+            src="../assets/img/github.png"
+            height="25"
+            width="25"
+            title="GitHub"
+            /></a><p class="px-1 text-overflow">GitHub</p>  
         </div>
         <div v-if="account.resume" class="d-flex text-left px-3">
+          <div class="action px-1 hoverable" data-toggle="modal" data-target="#resume-modal">
           <img
           alt="Resume"
           src="../assets/img/file.png"
           height="25"
           width="25"
+          title="Resume"
           />
-        <div class="pr-5 action px-1" data-toggle="modal" data-target="#resume-modal">
-        <span class="hoverable text-overflow">Resume</span>
-      </div>
+        </div>
+        <span class="text-overflow text-left">Resume</span>
       </div>
     </div>
     </span>

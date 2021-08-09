@@ -14,8 +14,45 @@
           </div>
         </div>
       </div>
-      <p class="m-0 p-0 minor-text">{{profile.class}}</p>
-      <h3 class="m-0 p-0 text-overflow"><b>{{profile.name}}</b></h3>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="m-0 p-0 minor-text">{{profile.class}}</p>
+          <h3 class="m-0 p-0 text-overflow"><b>{{profile.name}}</b></h3>
+        </div>
+        <div class="d-flex">
+          <div v-if="profile.linkedin" class="d-flex text-left">
+            <a :href="profile.linkedin">
+            <img
+            alt="linkedIn"
+            src="../assets/img/linkedin.png"
+            height="35"
+            width="35"
+            title="LinkedIn"
+            /></a>
+          </div>
+          <div v-if="profile.github" class="d-flex text-left">
+            <a :href="profile.github">
+            <img
+            alt="GitHub"
+            src="../assets/img/github.png"
+            height="35"
+            width="35"
+            title="GitHub"
+            /></a>
+          </div>
+          <div v-if="profile.resume" class="d-flex text-left">
+            <div class="action hoverable" data-toggle="modal" data-target="#resume-modal-profile">
+              <img
+              alt="Resume"
+              src="../assets/img/file.png"
+              height="35"
+              width="35"
+            title="Resume"
+              />
+          </div>
+          </div>
+        </div>
+      </div>
       <div v-if="profile.bio">
         <p class="pt-2 text-overflow">{{ profile.bio }}</p>
       </div>

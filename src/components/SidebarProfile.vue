@@ -17,32 +17,37 @@
           <p class="minor-text p-0 m-0">{{ profile.class }}</p>
           <h2 class="text-overflow p-0 mt-0">{{ profile.name }}</h2>
           <div v-if="profile.linkedin" class="d-flex text-left">
+            <a :href="profile.linkedin">
             <img
             alt="linkedIn logo"
             src="../assets/img/linkedin.png"
             height="25"
             width="25"
-            /><p class="text-overflow px-1"> {{profile.linkedin}}</p>  
+            title="LinkedIn"
+            /></a><p class="text-overflow px-1"> LinkedIn</p>  
           </div>
           <div v-if="profile.github" class="d-flex text-left">
+            <a :href="profile.github">
             <img
             alt="GitHub logo"
             src="../assets/img/github.png"
             height="25"
             width="25"
-            /><p class="text-overflow px-1"> {{profile.github}}</p>  
+            title="GitHub"
+            /></a><p class="text-overflow px-1"> GitHub</p>  
           </div>
           <div v-if="profile.resume" class="d-flex text-left">
-          <img
-          alt="Resume"
-          src="../assets/img/file.png"
-          height="25"
-          width="25"
-          />
-        <div class="action" data-toggle="modal" data-target="#resume-modal-profile">
-        <span class="hoverable px-1">Resume</span>
-      </div>
-      </div>
+            <div class="action hoverable" data-toggle="modal" data-target="#resume-modal-profile">
+              <img
+              alt="Resume"
+              src="../assets/img/file.png"
+              height="25"
+              width="25"
+              title="Resume"
+              />
+          </div>
+          <span class="px-1">Resume</span>
+          </div>
         </div>
       </div>
     </div>
