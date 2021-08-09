@@ -1,6 +1,4 @@
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
-import { convertToQuery } from '../utils/Query'
 import { api } from './AxiosService'
 
 class MustBuysService {
