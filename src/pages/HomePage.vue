@@ -22,11 +22,9 @@
           </div>
         </div>
         <div class="col-2 sml-hdn">
-          <aside class="ml-3 mr-1 my-3">
             <div class="row">
               <MustBuyDisplay v-for="m in mustBuys" :key="m.id" :mustBuy="m"/>
             </div>
-          </aside>
           
         </div>
         
@@ -89,14 +87,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
-  text-align: center;
-  user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
-}
+
 .sidebar-height{
   height:100vh;
 }

@@ -16,7 +16,7 @@
         <div class="px-3 mt-4 d-flex flex-column text-left">
           <p class="minor-text p-0 m-0">{{ profile.class }}</p>
           <h2 class="text-overflow p-0 mt-0">{{ profile.name }}</h2>
-          <div class="d-flex text-left">
+          <div v-if="profile.linkedin" class="d-flex text-left">
             <img
             alt="linkedIn logo"
             src="../assets/img/linkedin.png"
@@ -24,7 +24,7 @@
             width="25"
             /><p class="text-overflow px-1"> {{profile.linkedin}}</p>  
           </div>
-          <div class="d-flex text-left">
+          <div v-if="profile.github" class="d-flex text-left">
             <img
             alt="GitHub logo"
             src="../assets/img/github.png"
@@ -32,7 +32,7 @@
             width="25"
             /><p class="text-overflow px-1"> {{profile.github}}</p>  
           </div>
-          <div class="d-flex text-left">
+          <div v-if="profile.resume" class="d-flex text-left">
           <img
           alt="Resume"
           src="../assets/img/file.png"

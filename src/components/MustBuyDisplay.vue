@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 my-3">
-    <div class="mr-3">
+    <div class="">
       <img :src="mustBuy.tall" alt="testing" class="fit-ads w-100">
     </div>
   </div>

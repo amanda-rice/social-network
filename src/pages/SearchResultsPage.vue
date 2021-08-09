@@ -10,7 +10,9 @@
             <Navbar/>
           </div>
         <div class="col-md-10">
+          <h1 v-if="profiles.length > 0" class="text-left mt-3">Profiles</h1>
           <ProfileSearchCard v-for="p in profiles" :key="p.id" :profile="p"/>
+          <h1 v-if="announcements.length > 0" class="text-left mt-3">Posts</h1>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -99,14 +101,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
-  text-align: center;
-  user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
-}
+
 @media only screen and (max-width: 768px) {
   .sml-hdn {
     display: none;

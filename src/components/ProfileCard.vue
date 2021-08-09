@@ -15,9 +15,9 @@
         </div>
       </div>
       <p class="m-0 p-0 minor-text">{{profile.class}}</p>
-      <h3 class="m-0 p-0"><b>{{profile.name}}</b></h3>
+      <h3 class="m-0 p-0 text-overflow"><b>{{profile.name}}</b></h3>
       <div v-if="profile.bio">
-        <p class="pt-2">{{ profile.bio }}</p>
+        <p class="pt-2 text-overflow">{{ profile.bio }}</p>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@ export default {
 .img-fit{ 
   object-fit:cover;
   width: 100%; 
-  max-height: 100px; 
+  max-height: 150px; 
 }
 .spill{
     bottom: -10vh;

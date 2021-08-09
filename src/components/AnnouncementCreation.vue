@@ -8,6 +8,7 @@
                   class="form-control border-dashed"
                   placeholder="Share what's happening..."
                   required
+                  maxlength ="500"
                   v-model="state.newAnnouncement.body"
           ></textarea>
           <input type="text"
@@ -15,6 +16,7 @@
                   class="form-control border-dashed mt-4"
                   placeholder="Add a picture URL..."
                   v-model="state.newAnnouncement.imgUrl"
+                  maxlength = "150"
                   >
                 </div>
                 <div class="form-group">

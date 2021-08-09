@@ -11,6 +11,7 @@
         </div>
         <div class="col-md-10">
           <ProfileCard/>
+          <AnnouncementCreation v-if="profile.id === account.id"/>
           <AnnouncementThread :announcements="announcements"/>
           <div v-if="previous!== null">
             <button @click="previousPage">Previous</button>
@@ -71,6 +72,8 @@ export default {
       next: computed(()=> AppState.next),
       announcements: computed(()=> AppState.announcements),
       mustBuys: computed(()=> AppState.mustBuys),
+      profile: computed(()=> AppState.profile),
+      account: computed(()=> AppState.account),
       async nextPage(){
         try {
           await announcementsService.getAll(AppState.next)
@@ -91,14 +94,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
-  text-align: center;
-  user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
-}
 .sidebar-height{
   height:100vh;
 }

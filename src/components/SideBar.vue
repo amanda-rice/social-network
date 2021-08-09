@@ -50,7 +50,7 @@
             </div>
           </div>
       </div> 
-      <div class="d-flex text-left px-3">
+      <div v-if="account.linkedin" class="d-flex text-left px-3">
           <img
           alt="linkedIn logo"
           src="../assets/img/linkedin.png"
@@ -58,7 +58,7 @@
           width="25"
           /><p class="px-1 text-overflow"> {{account.linkedin}}</p>  
         </div>
-        <div class="d-flex text-left px-3">
+        <div v-if="account.github" class="d-flex text-left px-3">
           <img
           alt="GitHub logo"
           src="../assets/img/github.png"
@@ -66,7 +66,7 @@
           width="25"
           /><p class="px-1 text-overflow"> {{account.github}}</p>  
         </div>
-        <div class="d-flex text-left px-3">
+        <div v-if="account.resume" class="d-flex text-left px-3">
           <img
           alt="Resume"
           src="../assets/img/file.png"

@@ -29,11 +29,6 @@ main {
     display: none;
   }
 }
-@media only screen and (min-width: 768px) {
-  .sml-view {
-    display: none;
-  }
-}
 .minor-text{
   color: $dark-grey;
 }
@@ -93,6 +88,12 @@ main {
   display: block;
   text-overflow: ellipsis;
 }
+.post-overflow {
+    overflow: hidden;
+  word-wrap: break-word;
+  display: block;
+  text-overflow: ellipsis;
+}
 // .cover-parent {
 //   display: grid;
 //   grid-template-columns: repeat(12, 1fr);
@@ -111,7 +112,7 @@ main {
 //   z-index: 2;
 // }
 .img-fit{ 
-    object-fit:cover;
+  object-fit:cover;
   max-width: 100%; 
   display: block; 
   height: 20 vh; 
