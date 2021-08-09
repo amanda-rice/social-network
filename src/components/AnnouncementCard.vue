@@ -21,9 +21,9 @@
           delete
         </button>
       </div>
-      <div class="ml-auto d-flex">
+      <div class="ml-auto d-flex align-items-end">
         <h1 class="pr-2 m-0 " @click="addLike">♡</h1>
-        <p class="">{{announcement.likes.length}}</p>
+        <h5 class="d-flex minor-text">{{announcement.likes.length}}</h5>
       </div>
     </div>
     </div>

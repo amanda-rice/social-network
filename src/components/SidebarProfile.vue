@@ -1,39 +1,52 @@
 <template>
-  <div class="component bg-light ml-0 shadow">
+  <div class="component bg-light ml-0 pb-2 shadow">
     <div class="d-flex flex-column text-center">
       <div class="col-12">
         <div class="pt-5 parent w-100">
           <img
-          :src="profile.picture"
-          alt="profile.name"
-          class = "circle-image border-primary child1"
+            :src="profile.picture"
+            alt="profile.name"
+            class = "circle-image border-primary child1"
           />
-          <div v-if="profile.graduated" class="child1 child2">
-            <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img bg-light p-1">
+            <div v-if="profile.graduated" class="child1 child2">
+              <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img bg-light p-1">
+            </div>
+          </div>
         </div>
-      </div>
-        </div>
-      <p class="minor-text">{{ profile.class }}</p>
-      <p class="large-name overflow-hidden">{{ profile.name }}</p>
-      <div class="d-flex text-left">
+        <div class="px-3">
+          <p class="minor-text">{{ profile.class }}</p>
+          <p class="large-name text-overflow">{{ profile.name }}</p>
+          <div class="d-flex text-left">
+            <img
+            alt="linkedIn logo"
+            src="../assets/img/linkedin.png"
+            height="25"
+            width="25"
+            /><p class="text-overflow"> {{profile.linkedin}}</p>  
+          </div>
+          <div class="d-flex text-left">
+            <img
+            alt="GitHub logo"
+            src="../assets/img/github.png"
+            height="25"
+            width="25"
+            /><p class="text-overflow"> {{profile.github}}</p>  
+          </div>
+          <div class="d-flex text-left">
           <img
-          alt="linkedIn logo"
-          src="../assets/img/linkedin.png"
+          alt="Resume"
+          src="../assets/img/file.png"
           height="25"
           width="25"
-          /><p> {{profile.linkedin}}</p>  
-        </div>
-        <div class="d-flex text-left">
-          <img
-          alt="GitHub logo"
-          src="../assets/img/github.png"
-          height="25"
-          width="25"
-          /><p> {{profile.github}}</p>  
-        </div>
-        <p>Resume</p>
+          />
+        <div class="action" data-toggle="modal" data-target="#resume-modal-profile">
+        <span class="hoverable">Resume</span>
       </div>
-  </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  <ResumeModalProfile/>
 </template>
 
 

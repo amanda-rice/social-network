@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark gradient-bg">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+    
+     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <h1>DevSpace</h1>
       </div>
@@ -16,20 +17,20 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse sml-view navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
-            Home
-          </router-link>
+          <div
+        class="hoverable text-uppercase text-light"
+        @click="login"
+        v-if="!user.isAuthenticated"
+      >
+        Login
+      </div>
         </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
-            About
-          </router-link>
-        </li>
+            <li v-if="user.isAuthenticated" class="nav-item"> <span class="text-light text-uppercase hoverable" data-toggle="modal" data-target="#create-account">Update Profile</span>
+            </li>
       </ul>
-      
     </div>
     <form @submit.prevent="createAnnouncement" class="d-flex m-2">
         <div class="form-group mr-2">
@@ -41,12 +42,13 @@
                   >
                 </div>
           <div v-if="state.newSearch">
-            <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" @click="getAll" tag="button" type ="submit">
-              Search
+            <router-link :to="{name: 'SearchResults', params: {query: state.newSearch}}" @click="getAll" tag="button" type ="submit" class="text-light text-uppercase">
+              <button class="btn btn-primary">Search</button>
             </router-link>
           </div>
       </form>
   </nav>
+    <UpdateProfileModal/>
 </template>
 
 <script>
@@ -100,9 +102,6 @@ export default {
 .dropdown-menu.show {
   transform: scale(1);
 }
-.hoverable {
-  cursor: pointer;
-}
 a:hover {
   text-decoration: none;
 }
@@ -110,6 +109,6 @@ a:hover {
   text-transform: uppercase;
 }
 .nav-item .nav-link.router-link-exact-active{
-  color: var(--primary);
+  color: var(--light);
 }
 </style>

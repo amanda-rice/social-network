@@ -11,7 +11,7 @@ class ProfilesService {
 
   async getById(id) {
     const res = await api.get('api/profiles/' + id)
-    console.log(res.data)
+    console.log(res.data, 'profile by id')
     AppState.profile = res.data
     console.log(AppState.profile)
   }
