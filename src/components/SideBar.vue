@@ -12,11 +12,13 @@
         <div class="col-12">
 
           <div class="pt-5 parent w-100">
-            <img
-          :src="account.picture"
-          alt="account.name"
-          class = "circle-image border-primary child1"
-          />
+            <router-link router-link :to="{ name: 'Profile', params: {id: account.id } }" class="child1">
+              <img
+              :src="account.picture"
+              alt="account.name"
+              class = "circle-image border-primary "
+              />
+             </router-link>
           <div v-if="account.graduated" class="child1 child2">
             <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img bg-light p-1">
           </div>

@@ -22,7 +22,8 @@
         </button>
       </div>
       <div class="ml-auto d-flex align-items-end">
-        <h1 class="pr-2 m-0 hoverable" @click="addLike">♡</h1>
+        <h1 v-if="!user.isAuthenticated" class="pr-2 m-0">♡</h1>
+        <h1 v-else class="pr-2 m-0 hoverable" @click="addLike">♡</h1>
         <h5 class="d-flex minor-text">{{announcement.likes.length}}</h5>
       </div>
     </div>
@@ -47,6 +48,7 @@ export default {
   },
   setup(props) {
     return {
+      user: computed(() => AppState.user),
       account: computed(() => AppState.account),
       cleanDate: timeago.format(props.announcement.createdAt),
       async destroy() {

@@ -3,11 +3,11 @@
     <div class="p-3 d-flex flex-column">
       <div class="cover-parent" id="bg-image">
         <img class="img-fit" :src="profile.coverImg" alt="cover image">
-        <div class="parent-sm cover-child2">
+        <div class="parent-sm">
           <img
           :src="profile.picture"
           alt="profile.name"
-          class = "md-prof-pic border-primary spill"
+          class = "md-prof-pic border-primary spill child1"
           />
           <div v-if="profile.graduated" class="child2">
             <img src="../assets/img/school.png" alt="graduated" class="border-primary circle-img-sm bg-light p-1">
